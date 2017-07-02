@@ -25,10 +25,12 @@
 	<!------------------------------------------------------------->
 	<!--http server = retrieve data from server-->
 	
+	<input type="text" ng-model="searchBox">
+	
 	<div ng-controller="people"> <!--define controller-->
 		<ul>
 			<h2>Names and Age Of Programmers In The Local Area: </h2>
-			<li ng-repeat="person in persons">
+			<li ng-repeat="person in persons | filter:searchBox">
 				{{ person.Name + ' : ' + person.Age }}
 			</li>
 		</ul>
