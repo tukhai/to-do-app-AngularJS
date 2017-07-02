@@ -1,27 +1,8 @@
-var app = angular.module('mainApp', ['ngRoute']);
+var app = angular.module('mainApp', []);
 
-app.config(function($routeProvider){ /*just like the $scope example, not compressing javascript, so no need [] and $routeProvider before*/
-	$routeProvider
-	/*.when('/', {
-		template: 'Welcome user!'
-	})
-	.when('/anotherPage', {
-		template: 'Welcome user, again!'
-	})
-	.otherwise({
-		redirectTo: '/'
-	});*/	
-	
-	/*templateUrl is different from template*/
-	.when('/', {
-		templateUrl: 'page.html', /*the framework launch ajax request to this html file*/
-		/*template: '<b>This is template</b>'*/ /*the order is not important, always show to template*/
-	})
-	.when('/helloUser', {
-		templateUrl: 'hello.html'
-	})
-	.otherwise({
-		redirectTo: '/'
+app.controller('people', function($scope, $http) {
+	$http.get('database.json')
+	.success(function(response){ /*whenever 200 do this*/
+		$scope.persons = response.records; /*define variable array persons, records is the name of the json data*/
 	});
-	
 });

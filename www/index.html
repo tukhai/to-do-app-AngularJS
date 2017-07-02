@@ -14,8 +14,26 @@
 	<!--Route is a way to handler different URL context in your website-->
 	<!--The Route lib package enable us to have website urls-->
 	
-	<div ng-view></div> <!--all of our content displayed dynamically-->
+	<!--<div ng-view></div> <!--all of our content displayed dynamically-->
+						<!--ngView is a directive that complements 
+						the $route service by including the rendered 
+						template of the current route into the main l
+						ayout (index.html) file. Every time the current 
+						route changes, the included view changes with it 
+						according to the configuration of the $route service.-->
+
+	<!------------------------------------------------------------->
+	<!--http server = retrieve data from server-->
 	
+	<div ng-controller="people"> <!--define controller-->
+		<ul>
+			<h2>Names and Age Of Programmers In The Local Area: </h2>
+			<li ng-repeat="person in persons">
+				{{ person.Name + ' : ' + person.Age }}
+			</li>
+		</ul>
+	</div>
+		
 </body>
 
 </html>
