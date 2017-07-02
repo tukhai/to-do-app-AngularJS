@@ -12,6 +12,18 @@
 	<div ng-bind="name"></div>  <!--ng-bind: automatically bind the value, also this is auto escape
 											 only work with input, textarea, ...-->
 	
+	<!--<div ng-init="language='AngularJS'">
+		{{'language'}}
+	</div>-->
+	
+	<div ng-init="language='AngularJS'"> <!--ngInit directive allows you to evaluate an expression in the current scope-->
+		Your preferred language is: <input type="text" ng-model="language"> <!--ng-model: Binding the input text into the 
+																						  value of language above,
+																						  setting an initial value-->
+		{{language}}
+		<!--this 2 code lines are exactly same as above, only differece is ng-init aet an initial value-->
+	</div>
+	
 </body>
 
 </html>
